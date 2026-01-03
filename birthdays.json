@@ -5,10 +5,16 @@
     "lunar_day": 12,
     "notify_days_before": [7, 1, 0]
   },
+    {
+    "name": "妈妈",
+    "lunar_month": 11,
+    "lunar_day": 25,
+    "notify_days_before": [7, 1, 0]
+  },
   {
     "name": "弟弟",
     "lunar_month": 11,
-    "lunar_day": 16,
+    "lunar_day": 12,
     "notify_days_before": [7, 1, 0]
   }
 ]
