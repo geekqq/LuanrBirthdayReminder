@@ -1,0 +1,30 @@
+name: Lunar Birthday Reminder
+
+on:
+  schedule:
+    - cron: "0 16 * * *"  # UTC 16:00 = 加州早上 8 点
+  workflow_dispatch:
+
+jobs:
+  reminder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install lunardate requests
+
+      - name: Run reminder
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: |
+          python LunarBirthdayReminderBot.py
